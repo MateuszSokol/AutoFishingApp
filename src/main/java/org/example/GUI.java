@@ -1,5 +1,9 @@
 package org.example;
 
+import org.example.gui_assets.ConfigPanel;
+import org.example.gui_assets.MainPanel;
+import org.example.gui_assets.ParentPanel;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -16,11 +20,10 @@ public class GUI extends JFrame
     private final static int WINDOW_HEIGHT = 250;
 
     /**
-     * Buttons to interact with user interface
+     * Panels declaration
      */
-    public Button setMouseCoordinatesButton = new Button("Config");
-    public Button launchButton = new Button("Launch");
-    public Button settingsButton = new Button("Settings");
+    private ConfigPanel configPanel;
+    private MainPanel mainPanel;
 
     /**
      * Construct initialize GUI with core components
@@ -29,66 +32,23 @@ public class GUI extends JFrame
      */
     public GUI()
     {
-        JPanel panel = new JPanel();
-        configureButtonProperties();
-        configureJPanelProperties(panel);
 
-        configureWindowCoreProperties(panel);
-
-
-
+        this.mainPanel = new MainPanel();
+        configureWindowCoreProperties();
+        this.setContentPane(mainPanel);
         this.pack();
     }
 
     /**
      * Set window size with default properties, centre the window and pass panel as content pane
-     * @param mainPanel
      */
-    public void configureWindowCoreProperties(JPanel mainPanel)
+    public void configureWindowCoreProperties()
     {
         this.setPreferredSize(new Dimension(WINDOW_WIDTH,WINDOW_HEIGHT));
         this.setLocationRelativeTo(null);
-        this.setContentPane(mainPanel);
+
 
         this.setVisible(true);
-    }
-
-
-    /**
-     * Configure passed panel with BoxLayout and execute function to add Buttons to Panel
-     * @param panel
-     */
-    private void configureJPanelProperties(JPanel panel)
-    {
-
-        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
-
-        panel.setBorder(new EmptyBorder(10,10,10,10));
-        addButtonsToPanel(panel);
-    }
-
-    /**
-     * Add components to panel
-     * @param panel
-     */
-    private void addButtonsToPanel(JPanel panel)
-    {
-        panel.add(launchButton);
-        panel.add(Box.createVerticalGlue());
-        panel.add(settingsButton);
-        panel.add(Box.createVerticalGlue());
-        panel.add(setMouseCoordinatesButton);
-
-    }
-
-    /**
-     * Set minimum size of the buttons
-     */
-    private void configureButtonProperties()
-    {
-        this.launchButton.setMinimumSize(new Dimension(100,50));
-        this.settingsButton.setMinimumSize(new Dimension(100,50));
-        this.setMouseCoordinatesButton.setMinimumSize(new Dimension(100,50));
     }
 
 

@@ -1,4 +1,4 @@
-package org.example.assets;
+package org.example.controllers;
 
 import java.awt.*;
 import java.util.concurrent.Executors;
@@ -20,7 +20,7 @@ public class MouseActionExecutor
      * @param mouseHandler
      * @throws InterruptedException
      */
-    public  static void performMouseAction(InputController keyboardMouseController, Point desiredLocation, int mask, MouseHandler mouseHandler) throws InterruptedException {
+    public  static void performMouseShortClickAction(InputController keyboardMouseController, Point desiredLocation, int mask, MouseHandler mouseHandler) throws InterruptedException {
 
         //default values for Point are x = 1000 and y = 420
         int x = desiredLocation.x;

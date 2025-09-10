@@ -1,4 +1,4 @@
-package org.example.assets;
+package org.example.controllers;
 
 import java.awt.*;
 
